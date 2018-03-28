@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>New York Times API</title>
+</head>
+
+<body>
+ 
+    <button id="button">button</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    // Set the Event Listener for Click
+    $("#button").on("click", function() {
+
+    
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    url += '?' + $.param({
+    'api-key': "5f826616dd7f45d5a0a5bb71905975a3"
+    });
+
+    $.ajax({
+     url: url,
+    method: 'GET',
+    }).done(function(result) {
+    console.log(result);
+    }).fail(function(err) {
+     throw err;
+    }
+    )});
+
+  </script>
+</body>
+
+</html>
